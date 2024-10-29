@@ -1,10 +1,10 @@
-import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import path from 'path'
+import { defineConfig, loadEnv } from 'vite'
 import { viteMockServe } from 'vite-plugin-mock'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
-import vueJsx from '@vitejs/plugin-vue-jsx'
 import svgLoader from 'vite-svg-loader'
 
 export default defineConfig((config) => {
@@ -49,6 +49,7 @@ export default defineConfig((config) => {
       proxy: {
         [env.VITE_APP_BASE_API]: {
           target: 'https://mock.apifox.cn/m1/2869156-0-default',
+          // target: 'https://apifoxmock.com/m1/5366191-0-default',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/dev-api/, ''),
         },

@@ -2,14 +2,14 @@
   <div class="logo-container flex-center">
     <a href="/">
       <img class="logo" alt="logo" src="/logo.png" />
-      <h1 class="title" v-if="!collapse">视频直播后台管理</h1>
+      <h1 class="title" v-if="!collapse">学习后台</h1>
     </a>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
 import { useSettingsStore } from '@/store/modules/settings'
+import { computed, defineComponent } from 'vue'
 export default defineComponent({
   setup() {
     const settingsStore = useSettingsStore()

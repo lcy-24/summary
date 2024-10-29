@@ -7,7 +7,7 @@
           <p class="page-header-tip-title">
             {{ timeFix() }}{{ userInfo?.name }}，{{ welcome() }}
           </p>
-          <p class="page-header-tip-desc">视频直播后台管理系统</p>
+          <p class="page-header-tip-desc">学习后台</p>
         </div>
       </div>
     </el-card>
@@ -19,9 +19,9 @@
 </template>
 
 <script setup lang="ts">
+import SvgIcon from '@/components/SvgIcon/src/SvgIcon.vue'
 import { useUserStore } from '@/store/modules/user'
 import { timeFix, welcome } from '@/utils/index'
-import SvgIcon from '@/components/SvgIcon/src/SvgIcon.vue'
 const userStore = useUserStore()
 const userInfo = userStore.userInfo
 </script>
