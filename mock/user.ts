@@ -1,5 +1,4 @@
-import { resultError, resultSuccess, getRequestToken } from './_utils'
-// mock/user.ts
+import { getRequestToken, resultError, resultSuccess } from './_utils'
 
 function createUserList() {
   return [

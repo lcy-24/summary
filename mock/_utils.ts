@@ -1,11 +1,3 @@
-/*
- * @Author: 朽木白
- * @Date: 2023-02-03 14:49:31
- * @LastEditors: 1547702880@@qq.com
- * @LastEditTime: 2023-02-03 17:08:45
- * @Description: Mock工具函数
- */
-
 import { ResultEnum } from '../src/enums/httpEnums'
 
 /**

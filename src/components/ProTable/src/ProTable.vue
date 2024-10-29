@@ -119,16 +119,16 @@
 </template>
 
 <script lang="ts" setup name="ProTable">
-import { ref, provide, watch } from 'vue'
-import { useFullscreen } from '@vueuse/core'
-import { useTable } from './hooks/useTable'
-import { useSelection } from './hooks/useSelection'
-import { ElTable, TableProps } from 'element-plus'
-import type { ColumnProps, BreakPoint } from './types'
 import SearchForm from '@/components/SearchForm'
-import TableColumn from './components/TableColumn.vue'
-import Pagination from './components/Pagination.vue'
+import { useFullscreen } from '@vueuse/core'
+import { ElTable, TableProps } from 'element-plus'
+import { provide, ref, watch } from 'vue'
 import ColSetting from './components/ColSetting.vue'
+import Pagination from './components/Pagination.vue'
+import TableColumn from './components/TableColumn.vue'
+import { useSelection } from './hooks/useSelection'
+import { useTable } from './hooks/useTable'
+import type { BreakPoint, ColumnProps } from './types'
 /**
  * @description: props类型定义
  * @param columns       - 列配置项
@@ -143,7 +143,8 @@ import ColSetting from './components/ColSetting.vue'
  * @param searchCol     - 表格搜索项 每列占比配置 ==> 非必传 { xs: 1, sm: 2, md: 2, lg: 3, xl: 4 }
  * @param resetCallback      - 点击重置时候所额外执行的回调函数 ==> 非必传（默认为()=>{}）
  */
-interface ProTableProps extends Partial<Omit<TableProps<any>, 'data'>> {
+interface ProTableProps
+  extends /* @vue-ignore */ Partial<Omit<TableProps<any>, 'data'>> {
   columns: ColumnProps[]
   requestApi: (params: any) => Promise<any>
   dataCallback?: (data: any) => any

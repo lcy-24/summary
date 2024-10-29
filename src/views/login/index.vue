@@ -2,7 +2,7 @@
   <div class="login-container">
     <el-alert
       v-show="false"
-      title="尚品汇商城管理平台"
+      title="学习后台"
       type="success"
       :closable="false"
       style="position: fixed"
@@ -21,7 +21,7 @@
         >
           <div class="form-header">
             <div class="title">hello !</div>
-            <div class="title-tips">欢迎来到仓储物流管理！</div>
+            <div class="title-tips">欢迎来到我的学习后台！</div>
           </div>
           <el-form-item prop="username">
             <el-input
@@ -59,15 +59,18 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import { useUserStore } from '@/store/modules/user'
-import type { FormInstance } from 'element-plus'
-import { User, Lock } from '@element-plus/icons-vue'
-import { ElNotification } from 'element-plus'
-import { HOME_URL } from '@/config/config'
-import { timeFix } from '@/utils/index'
+defineOptions({
+  name: 'Login',
+})
 import { login } from '@/api'
+import { HOME_URL } from '@/config/config'
+import { useUserStore } from '@/store/modules/user'
+import { timeFix } from '@/utils/index'
+import { Lock, User } from '@element-plus/icons-vue'
+import type { FormInstance } from 'element-plus'
+import { ElNotification } from 'element-plus'
+import { reactive, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 const router = useRouter()
 const route = useRoute()
 const ruleFormRef = ref<FormInstance>()

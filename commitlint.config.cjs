@@ -18,6 +18,7 @@ module.exports = {
         'build',
       ],
     ],
+    'subject-empty': [0], // 0 表示禁用此规则
     'type-case': [0],
     'type-empty': [0],
     'scope-empty': [0],

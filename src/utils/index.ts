@@ -21,6 +21,7 @@ export function welcome() {
     '休息一会儿吧',
     '准备吃什么呢',
     '要不要站起来活动一下',
+    '好好学习',
   ]
   const index = Math.floor(Math.random() * arr.length)
   return arr[index]

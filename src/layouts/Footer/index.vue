@@ -1,8 +1,7 @@
 <template>
   <div class="layout-footer-container">
-    Copyright
-    <svg-icon name="copyright" size="16px" color="rgba(0, 0, 0, 0.45)" />
-    {{ fullYear }}尚硅谷教学
+    <!-- <svg-icon name="copyright" size="16px" color="rgba(0, 0, 0, 0.45)" /> -->
+    {{ fullYear }}学习之路
   </div>
 </template>
 
@@ -28,6 +27,8 @@ export default defineComponent({
   padding: 0 20px;
   color: rgb(0 0 0 / 45%);
   background: var(--el-color-white);
-  border-top: 1px dashed #dcdfe6;
+  border-top: 1px solid #f6f8f9;
+
+  // border-top: 1px dashed #dcdfe6;
 }
 </style>
