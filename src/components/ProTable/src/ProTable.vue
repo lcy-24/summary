@@ -164,7 +164,7 @@ const props = withDefaults(defineProps<ProTableProps>(), {
   columns: () => [],
   pagination: true,
   initParam: {},
-  border: true,
+  border: false,
   toolButton: true,
   selectId: 'id',
   requestAuto: true,

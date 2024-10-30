@@ -15,8 +15,8 @@
  * @param meta.isKeepAlive ==> 是否缓存
  * */
 
-import { RouteRecordRaw } from 'vue-router'
 import { HOME_URL, LOGIN_URL } from '@/config/config'
+import { RouteRecordRaw } from 'vue-router'
 
 const LAYOUT = () => import('@/layouts/index.vue')
 
@@ -68,6 +68,48 @@ export const staticRoutes: RouteRecordRaw[] = [
           title: '统计',
           icon: 'DataAnalysis',
           affix: true,
+        },
+      },
+    ],
+  },
+  {
+    path: '/css',
+    name: 'Css',
+    component: LAYOUT,
+    redirect: '/css/one',
+    meta: {
+      title: 'Css学习',
+      icon: 'Menu',
+    },
+    children: [
+      {
+        path: '/css/one',
+        name: 'CssOne',
+        component: () => import('@/views/css/one/index.vue'),
+        meta: {
+          title: '第一集',
+          icon: 'Grid',
+          affix: false,
+        },
+      },
+      {
+        path: '/css/one/show/:id',
+        component: () => import('@/views/css/one/show.vue'),
+        meta: {
+          title: '第一集详情',
+          isHide: true,
+          noAuth: true,
+          icon: 'Grid',
+        },
+      },
+      {
+        path: '/css/two',
+        name: 'CssTwo',
+        component: () => import('@/views/css/two/index.vue'),
+        meta: {
+          title: '第二集',
+          icon: 'Grid',
+          affix: false,
         },
       },
     ],
