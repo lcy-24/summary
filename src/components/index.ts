@@ -1,13 +1,14 @@
 import type { App, Component } from 'vue'
 
-import { SvgIcon } from './SvgIcon'
-import { SearchForm } from './SearchForm'
-import { ProTable } from './ProTable'
 import { Auth } from './Auth'
-import { SwitchDark } from './SwitchDark'
 import { IconifyIcon } from './IconifyIcon'
-import { UploadImgs, UploadImg } from './Upload'
+import { ProTable } from './ProTable'
 import { ScreenLock } from './ScreenLock'
+import { SearchForm } from './SearchForm'
+import { SvgIcon } from './SvgIcon'
+import { SwitchDark } from './SwitchDark'
+import { SwitchWaterMark } from './SwitchWaterMark'
+import { UploadImg, UploadImgs } from './Upload'
 
 const Components: {
   [propName: string]: Component
@@ -17,6 +18,7 @@ const Components: {
   ProTable,
   Auth,
   SwitchDark,
+  SwitchWaterMark,
   IconifyIcon,
   UploadImgs,
   UploadImg,

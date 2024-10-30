@@ -122,6 +122,26 @@ export const staticRoutes: RouteRecordRaw[] = [
     },
     component: () => import('@/views/error/error-404.vue'), //这个是我自己的路径
   },
+  // 智慧街道区域驾驶舱--- 街道
+  {
+    path: '/cockpit/streetCockpit',
+    name: 'cockpitStreetCockpit',
+    component: () => import('@/views/cockpit/streetCockpit.vue'),
+    meta: {
+      title: '街道',
+      icon: 'Menu',
+    },
+  },
+  // 智慧街道区域驾驶舱--- 部门
+  {
+    path: '/cockpit/regionalCockpit',
+    name: 'cockpitRegionalCockpit',
+    component: () => import('@/views/cockpit/regionalCockpit.vue'),
+    meta: {
+      title: '部门',
+      icon: 'Menu',
+    },
+  },
 ]
 
 /**

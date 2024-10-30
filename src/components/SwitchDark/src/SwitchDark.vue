@@ -9,10 +9,10 @@
 </template>
 
 <script setup lang="ts" name="SwitchDark">
-import { computed } from 'vue'
-import { useSettingsStore } from '@/store/modules/settings'
-import { Sunny, Moon } from '@element-plus/icons-vue'
 import { useTheme } from '@/hooks/useTheme'
+import { useSettingsStore } from '@/store/modules/settings'
+import { Moon, Sunny } from '@element-plus/icons-vue'
+import { computed } from 'vue'
 const settingsStore = useSettingsStore()
 
 const { switchDark } = useTheme()

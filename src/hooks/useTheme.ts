@@ -1,9 +1,10 @@
-import { computed } from 'vue'
 import { useSettingsStore } from '@/store/modules/settings'
-import { DEFAULT_PRIMARY } from '../config/config'
+import { getDarkColor, getLightColor } from '@/utils/color'
+import { removeWatermark, setWaterMark } from '@/utils/watermark'
 import { ElMessage } from 'element-plus'
-import { getLightColor, getDarkColor } from '@/utils/color'
-
+import moment from 'moment'
+import { computed } from 'vue'
+import { DEFAULT_PRIMARY } from '../config/config'
 export const useTheme = () => {
   const settingsStore = useSettingsStore()
   const themeConfig = computed(() => settingsStore.themeConfig)
@@ -14,6 +15,21 @@ export const useTheme = () => {
     if (themeConfig.value.isDark) body.setAttribute('class', 'dark')
     else body.setAttribute('class', '')
     changePrimary(themeConfig.value.primary)
+  }
+  //水印文字
+  const setWatermarks = (isActive: boolean) => {
+    console.log(isActive, 'setWatermarks')
+    const watertxt = '加油'
+    const currentTime = moment().format('YYYY-MM-DD HH:mm:ss')
+    if (isActive) {
+      setWaterMark(
+        watertxt || '',
+        currentTime || '',
+        'rgba(200, 200, 200, 0.2)',
+      )
+    } else {
+      removeWatermark()
+    }
   }
 
   // 修改主题颜色
@@ -51,5 +67,6 @@ export const useTheme = () => {
     initTheme,
     switchDark,
     changePrimary,
+    setWatermarks,
   }
 }

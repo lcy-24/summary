@@ -1,143 +1,76 @@
 <template>
-  <div class="card-list">
-    <el-row :gutter="20">
-      <el-col :span="6">
-        <el-card shadow="hover">
-          <div class="card-first">总销售额</div>
-          <div class="card-second" @click="updateInfo">126560</div>
-          <div class="card-third">周同比 12% 日环比 11%</div>
-          <div class="card-forth">
-            <span class="card-forth-title">日均销售额</span>
-            <span class="card-forth-num">￥12423</span>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :span="6">
-        <el-card shadow="hover">
-          <div class="card-first">访问额</div>
-          <div class="card-second">8846</div>
-          <div class="card-third">
-            <img :src="image2" alt="" srcset="" />
-          </div>
-          <div class="card-forth">
-            <span class="card-forth-title">日均销售额</span>
-            <span class="card-forth-num">￥12423</span>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :span="6">
-        <el-card shadow="hover">
-          <div class="card-first">支付笔数</div>
-          <div class="card-second">6560</div>
-          <div class="card-third">
-            <img :src="image3" alt="" srcset="" />
-          </div>
-          <div class="card-forth">
-            <span class="card-forth-title">转换率</span>
-            <span class="card-forth-num">60%</span>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :span="6">
-        <el-card shadow="hover">
-          <div class="card-first">用户转化率率</div>
-          <div class="card-second">78%</div>
-          <div class="card-third">
-            <img :src="image4" alt="" srcset="" />
-          </div>
-          <div class="card-forth">
-            <span class="card-forth-title">周同比</span>
-            <span class="card-forth-num">
-              <el-icon class="caret-top"><CaretTop /></el-icon>
-              12%
-            </span>
-            <span class="card-forth-title" style="margin-left: 10px">
-              日环比
-            </span>
-            <span class="card-forth-num">
-              <el-icon class="caret-bottom"><CaretBottom /></el-icon>
-            </span>
-            11%
-          </div>
-        </el-card>
-      </el-col>
-    </el-row>
-    <div v-if="show" style="width: 100px; height: 100px; border: 1px solid red">
-      {{ props.info }}
-      <div v-for="(item, index) in tableList" :key="index">
-        {{ item.xx }}== {{ item.age }}
-      </div>
-    </div>
+  <div class="demo-collapse">
+    <el-collapse v-model="activeName" accordion>
+      <el-collapse-item title="说说你对盒子模型的理解?" name="1">
+        <div>盒子模型可以分成： W3C 标准盒子模型 IE 怪异盒子模型</div>
+        <div>
+          标准盒子模型
+          <span>盒子总宽度 = width + padding + border + margin;</span>
+          <span>盒子总高度 = height + padding + border + margin</span>
+          也就是，width/height 只是内容高度，不包含 padding 和 border值
+        </div>
+        <div>
+          IE 怪异盒子模型
+          <span>盒子总宽度 = width + margin;</span>
+          <span>盒子总高度 = height + margin;</span>
+        </div>
+      </el-collapse-item>
+      <el-collapse-item
+        title="css选择器有哪些？优先级？哪些属性可以继承？"
+        name="2"
+      >
+        <div>
+          关于css属性选择器常用的有： id选择器（#box），选择id为box的元素
+          类选择器（.one），选择类名为one的所有元素
+          标签选择器（div），选择标签为div的所有元素 后代选择器（#box
+          div），选择id为box元素内部所有的div元素
+          子选择器（.one>one_1），选择父元素为.one的所有.one_1的元素
+          相邻同胞选择器（.one+.two），选择紧接在.one之后的所有.two元素
+          群组选择器（div,p），选择div、p的所有元素
+        </div>
+        <div>
+          优先级
+          <span>内联 > ID选择器 > 类选择器 > 标签选择器</span>
+        </div>
+      </el-collapse-item>
+      <el-collapse-item title="说说em/px/rem/vh/vw区别?" name="3">
+        <div>
+          px：绝对单位，页面按精确像素展示
+          em：相对单位，基准点为父节点字体的大小，如果自身定义了font-size按自身来计算，整个页面内1em不是一个固定的值
+          rem：相对单位，可理解为root em, 相对根节点html的字体大小来计算
+          vh、vw：主要用于页面视口大小布局，在页面布局上更加方便简单
+        </div>
+      </el-collapse-item>
+      <el-collapse-item
+        title="css中，有哪些方式可以隐藏页面元素？区别?"
+        name="4"
+      >
+        <div>
+          通过css实现隐藏元素方法有如下： display:none visibility:hidden
+          opacity:0 设置height、width模型属性为0 position:absolute
+        </div>
+      </el-collapse-item>
+    </el-collapse>
   </div>
 </template>
 
-<script setup lang="ts">
-import image4 from '@/assets/images/statics-top-four.png'
-import image3 from '@/assets/images/statics-top-three.png'
-import image2 from '@/assets/images/statics-top-two.png'
-import { defineEmits, defineProps, reactive, ref } from 'vue'
-defineOptions({
-  name: 'Onee',
-})
-const props = defineProps<{ info: string }>()
-const emits = defineEmits(['update-info'])
-const show = ref(false)
-interface TableItem {
-  xx: string
-  age: number
-}
+<script lang="ts" setup>
+import { ref } from 'vue'
 
-const tableList: TableItem[] = reactive([{ xx: 'zz', age: 18 }])
-const updateInfo = () => {
-  console.log('click')
-  show.value = true
-  emits('update-info', 'new value')
-}
+const activeName = ref('1')
 </script>
+
 <style lang="scss" scoped>
-.card-first {
-  padding-bottom: 5px;
-  font-size: 14px;
-  color: rgb(0 0 0 / 42.7%);
+:deep(.el-collapse-item__wrap) {
+  padding-left: 10px !important;
 }
 
-.card-second {
-  font-size: 30px;
-  color: rgb(0 0 0 / 84.7%);
+:deep(.el-collapse-item__header) {
+  padding-left: 10px !important;
+  font-size: 22px !important;
 }
 
-.card-third {
-  padding: 20px 0;
-  color: rgb(0 0 0 / 42.7%);
-  border-bottom: 1px solid rgb(0 0 0 / 11.1%);
-}
-
-.card-forth {
-  padding-top: 10px;
-  color: rgb(0 0 0 / 66.6%);
-  white-space: nowrap;
-
-  .card-forth-title {
-    display: inline-block;
-    margin-right: 15px;
-  }
-}
-
-img {
-  display: block;
-  width: 100%;
-  max-height: 16px;
-}
-
-.caret-top {
-  color: green;
-}
-
-.caret-bottom {
-  color: red;
-}
-
-.card-list .el-card :deep(.el-card__body) {
-  padding-bottom: 10px;
+:deep(.el-collapse-item__content) {
+  font-size: 20px !important;
 }
 </style>

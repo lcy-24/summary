@@ -13,17 +13,21 @@
       <span>暗黑模式</span>
       <SwitchDark />
     </div>
+    <div class="theme-item">
+      <span>全局水印</span>
+      <SwitchWaterMark />
+    </div>
   </el-drawer>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import mittBus from '@/utils/mittBus'
 import { DEFAULT_PRIMARY } from '@/config/config'
-import { useSettingsStore } from '@/store/modules/settings'
 import { useTheme } from '@/hooks/useTheme'
-const { changePrimary } = useTheme()
+import { useSettingsStore } from '@/store/modules/settings'
+import mittBus from '@/utils/mittBus'
+import { computed, ref } from 'vue'
 
+const { changePrimary } = useTheme()
 // 预定义主题颜色
 const colorList = [
   DEFAULT_PRIMARY,
