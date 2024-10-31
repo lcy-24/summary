@@ -19,7 +19,7 @@
     "preinstall": "node ./scripts/preinstall.js"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,vue}": [
+    "**/*.{js,jsx,ts,tsx}": [
       "eslint --fix",
       "stylelint --fix",
       "prettier --write",
@@ -46,6 +46,7 @@
     "pinia-plugin-persistedstate": "^3.1.0",
     "socket.io": "^4.6.2",
     "socket.io-client": "^4.6.2",
+    "sog-count-to": "^0.1.5",
     "vue": "^3.2.45",
     "vue-echarts": "^6.5.5",
     "vue-router": "4",
